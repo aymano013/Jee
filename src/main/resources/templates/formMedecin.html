@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="template1">
+<head>
+    <meta charset="UTF-8">
+    <title>Nouveau Medecin</title>
+    <link rel="stylesheet" href="/webjars/bootstrap/5.1.3/css/bootstrap.min.css">
+    <style>
+        @import url(https://fonts.googleapis.com/css?family=Roboto:400,300,600,400italic);
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            -webkit-font-smoothing: antialiased;
+            -moz-font-smoothing: antialiased;
+            -o-font-smoothing: antialiased;
+            font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
+        }
+
+        body {
+            font-family: "Roboto", Helvetica, Arial, sans-serif;
+            font-weight: 100;
+            font-size: 12px;
+            line-height: 30px;
+            color: #777;
+
+        }
+        .container {
+            margin-top:800pt ;
+            max-width: 400px;
+            width: 100%;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .form-control{
+            width: 100%;
+            padding: 10px 0;
+            margin: 5px 0;
+            border-left: 0;
+            border-top: 0;
+            border-right: 0;
+            border-bottom: 1px solid #999;
+            outline: none;
+            background: transparent;
+        }
+        .btn-primary{
+            width: 85%;
+            padding: 10px 30px;
+            cursor: pointer;
+            display: block;
+            margin: auto;
+            background: linear-gradient(to left, #ff1058, #ffad06);
+            border: 0;
+            outline: none;
+            border-radius: 30px;
+        }
+    </style>
+</head>
+<body style="background: linear-gradient(to left, #ff105f, #ffad06)">
+<div layout:fragment="content1">
+    <div class="container">
+        <form id="contact" th:action="@{/admin/medecin/save}" method="post">
+            <center><h3>Ajouter un nouveau Medecin</h3></center>
+
+
+                <input placeholder="Nom" type="text" name="nom" class="form-control" required autofocus th:value="${medecin.nom}">
+
+
+                <input placeholder="Prenom" type="text" name="prenom" class="form-control" required autofocus th:value="${medecin.prenom}">
+
+
+                <input placeholder="Numero de Tel" type="tel" name="numero" class="form-control" required th:value="${medecin.numero}">
+
+                <input placeholder="E-mail" type="email" name="email" class="form-control" required th:value="${medecin.email}">
+
+                <input placeholder="Specialite" type="specialite" name="specialite" class="form-control" required th:value="${medecin.specialite}">
+
+                <button  type="submit" class="btn-primary" >Ajouter</button>
+
+
+        </form>
+    </div>
+</div>
+
+
+</body>
+</html>
